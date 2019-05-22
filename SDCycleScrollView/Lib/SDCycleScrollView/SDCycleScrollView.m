@@ -170,7 +170,8 @@ NSString * const ID = @"SDCycleScrollViewCell";
     
     if (!self.backgroundImageView) {
         UIImageView *bgImageView = [UIImageView new];
-        bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+        bgImageView.contentMode = self.bannerImageViewContentMode;
+        bgImageView.clipsToBounds = YES;
         [self insertSubview:bgImageView belowSubview:self.mainView];
         self.backgroundImageView = bgImageView;
     }
@@ -610,7 +611,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
         cell.titleLabelTextFont = self.titleLabelTextFont;
         cell.hasConfigured = YES;
         cell.imageView.contentMode = self.bannerImageViewContentMode;
-        cell.clipsToBounds = YES;
+        cell.imageView.clipsToBounds = YES;
         cell.onlyDisplayText = self.onlyDisplayText;
     }
     
